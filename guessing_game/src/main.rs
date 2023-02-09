@@ -24,6 +24,7 @@ fn main() {
 
         println!("Your guess is: {number}");
 
+        // match expression -- put it in front of the statement
         match number.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
