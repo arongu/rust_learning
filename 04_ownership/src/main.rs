@@ -15,12 +15,12 @@ fn main() {
     // &'static str - is the type of string literals
 
     let string_literal: &'static str = "String literal.";
-    let string_rhythm_of_the_night = String::from("This is the rhythm of the night!");
+    let string_immutable_on_the_heap = String::from("This is the rhythm of the night!");
     let mut string_on_the_heap = String::from("Hello, world!");
 
     println!("{} {}", string_literal, string_on_the_heap);
     string_on_the_heap.push_str(" Push Me!");
 
     println!("{}", string_on_the_heap);
-    println!("{}", string_rhythm_of_the_night);
+    println!("{}", string_immutable_on_the_heap);
 }
