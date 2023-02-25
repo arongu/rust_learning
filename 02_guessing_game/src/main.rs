@@ -9,8 +9,7 @@ fn main() {
 
     loop {
         guess.clear(); // clear the string
-        // stdin() gives you a handle to the STDIN of this process
-        stdin()
+        stdin()        // stdin() gives you a handle to the STDIN of this process
             .read_line(&mut guess) // returns a result Result<T,E> where T - is ok, E is - error
             .expect("Failed to read line!");   // expect
 
