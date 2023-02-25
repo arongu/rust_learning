@@ -28,6 +28,10 @@ fn main() {
     let s4 = String::from("Calculate my length.");
     println!("Length of '{}' is {}", s4, calculate_length_(&s4));
     println!("s4 = {}", s4); // ownership remains the same
+
+    let mut s5 = String::from("You can change me!");
+    change(&mut s5);
+    println!("s5 after change = {}", s5);
 }
 
 fn makes_copy(some_integer: i32) { // because integer has the copy trait?
@@ -56,6 +60,11 @@ fn calculate_length_with_tuple(s: String) -> (String, usize) { // this will take
 fn calculate_length_(s: &String) -> usize { // this will NOT take ownership, called borrowing
     let length: usize = s.len();            // references are immutable by default, so we cannot modify, what we have borrowed
     length
+}
+
+fn change(s: &mut String) {
+    s.clear();
+    s.push_str("I am going to mess up your string!!!!");
 }
 
 
