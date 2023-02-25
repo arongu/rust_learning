@@ -53,8 +53,9 @@ fn calculate_length_with_tuple(s: String) -> (String, usize) { // this will take
     (s,length)
 }
 
-fn calculate_length_(s: &String) -> usize { // this will take ownership as well
-    let length: usize = s.len();
+fn calculate_length_(s: &String) -> usize { // this will NOT take ownership, called borrowing
+    let length: usize = s.len();            // references are immutable by default, so we cannot modify, what we have borrowed
     length
 }
+
 
