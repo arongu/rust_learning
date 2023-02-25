@@ -1,3 +1,8 @@
+/*
+    1) At any given time you can have either 1 mutable reference or any number of immutable refernce
+    2) References must be valid, they cannot dangle!
+ */
+
 fn main() {
     //only_one_mutable_reference();
     mixing_references();
@@ -30,3 +35,18 @@ fn only_one_mutable_reference() {
 
     //println!("{} {}", _ref_a, _ref_b); // this will crash
 }
+
+fn test() {
+    let mut s1: String = String::from("Here we go!");
+    let r0: &String = &s1;
+    // let r1: &String = &s1;
+    // let r2: &String = &s1;
+    let w0: &mut String = &mut s1;
+
+    //println!("{} {} {} {}", r0, r1, r2, w0);
+    println!("{} {}", r0, w0);
+}
+
+// fn dangle() -> &String { // this will fail as well
+//     &String::from("I am dangling.");
+// }
