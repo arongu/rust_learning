@@ -3,8 +3,6 @@ fn main() {
     let _y: i32 = x; // it works because it has a Copy trait, which allows it to be copied, more on that later
     let z: i32 = 5;
 
-
-
     // ownership changes
     let s0: String = String::from("own_me");
     takes_ownership(s0);
@@ -21,6 +19,15 @@ fn main() {
                                       // ownership can be revoked by passing it to a function... !!!!
     let s2 = takes_and_gives_ownership(s1);
     println!("s2 = {}", s2);
+
+    // giving "back" ownership to its original owner is only possible when it is mutable
+    // references to the rescue! with them you do now have to give ownership back
+    let (s3, len) = calculate_length_with_tuple(s2);
+    println!("The length of '{}' is {}.", s3, len);
+
+    let s4 = String::from("Calculate my length.");
+    println!("Length of '{}' is {}", s4, calculate_length_(&s4));
+    println!("s4 = {}", s4); // ownership remains the same
 }
 
 fn makes_copy(some_integer: i32) { // because integer has the copy trait?
@@ -39,5 +46,15 @@ fn gives_ownership() -> String {
 fn takes_and_gives_ownership(some_string: String) -> String {
     println!("I am going to give it back: {}", some_string);
     some_string
+}
+
+fn calculate_length_with_tuple(s: String) -> (String, usize) { // this will take ownership as well
+    let length: usize = s.len();
+    (s,length)
+}
+
+fn calculate_length_(s: &String) -> usize { // this will take ownership as well
+    let length: usize = s.len();
+    length
 }
 
