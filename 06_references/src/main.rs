@@ -5,7 +5,14 @@
 
 fn main() {
     //only_one_mutable_reference();
-    mixing_references();
+    //mixing_references();
+    borrow_example();
+}
+
+fn borrow_example() {
+    let x = 5;
+    let borrow_x: &i32 = &x;
+    println!("{} {}", x, borrow_x);
 }
 
 fn mixing_references() {
@@ -41,10 +48,10 @@ fn test() {
     let r0: &String = &s1;
     // let r1: &String = &s1;
     // let r2: &String = &s1;
-    let w0: &mut String = &mut s1;
+    //let w0: &mut String = &mut s1;
 
     //println!("{} {} {} {}", r0, r1, r2, w0);
-    println!("{} {}", r0, w0);
+    //println!("{} {}", r0, w0);
 }
 
 // fn dangle() -> &String { // this will fail as well
