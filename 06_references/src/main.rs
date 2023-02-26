@@ -6,7 +6,8 @@
 fn main() {
     //only_one_mutable_reference();
     //mixing_references();
-    borrow_example();
+    //borrow_example();
+    is_it_move_or_copy();
 }
 
 fn borrow_example() {
@@ -57,3 +58,13 @@ fn test() {
 // fn dangle() -> &String { // this will fail as well
 //     &String::from("I am dangling.");
 // }
+
+fn is_it_move_or_copy() {
+    let x = 5;
+    let y = x;
+    println!("{:p} {:p}", &x, &y); // this is copy
+
+    let s1: String = String::from("mystring"); // move occurs because `s1` has type `String`, which does not implement the `Copy` trait
+    let s2 = s1;
+    println!("{:p} {:p}", &s1, &s2); // this is borrow
+}
