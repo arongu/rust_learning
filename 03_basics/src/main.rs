@@ -12,7 +12,7 @@ fn basics() {
     let b: i32 = 0xff;  // hexadecimal
     let c: i32 = 0o77;  // octal
     let d: i32 = 0b111; // binary
-    let e: u8 = b'A';  // byte (u8 only)
+    let e: u8  = b'A';  // byte (u8 only)
 
     // Floating point numbers
     let f: f64 = 2.0;
