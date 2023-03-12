@@ -34,12 +34,30 @@ impl Rectangle { // self which is the instance which the method is being called
     fn area(&self) -> u32 {
         self.height * self.width // the syntax is the same for reference or an object, rust has a feature 'automatic de-referencing'
                                  // c++ x -> area(); x.area() -- no need for this in here
+    /*
+        In C and C++, two different operators are used for calling methods: you use .
+        if you’re calling a method on the object directly and -> if you’re calling the method on a pointer to the object
+        and need to dereference the pointer first. In other words, if object is a pointer, object->something() is similar to (*object).something().
+        Rust doesn’t have an equivalent to the -> operator; instead, Rust has a feature called automatic referencing and dereferencing.
+        Calling methods is one of the few places in Rust that has this behavior.
+     */
     }
 
     fn can_hold(&self, other: &Rectangle) -> bool {
         //self.area() >= other.area()
         self.width > other.width && self.height > other.height
     }
+
+    fn myself(self : &Rectangle) { // &self is shorthand for self : &Self and &Self is an alias for the current type
+        //                         // in this case &Rectangle
+        println!("Look at me height={} width={} area={}", self.height, self.width, self.area());
+    }
+
+    /*
+        &self             -- it represents itself
+        self : &Self      -- use the &Self alias which always represents the type of itself
+        self : &Rectangle -- ditch the alias and use the type itself
+     */
 }
 
 impl Rectangle {
@@ -78,8 +96,9 @@ pub(crate) fn three() {
         height: 50
     };
 
-    let3 = Rectangle::square(10);
+    let rect3 = Rectangle::square(10);
 
     println!("react1 can hold rect2: {}", rect1.can_hold(&rect2));
     println!("react2 can hold rect1: {}", rect2.can_hold(&rect1));
+    rect3.myself();
 }
