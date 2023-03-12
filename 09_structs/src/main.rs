@@ -1,6 +1,5 @@
-mod user;
 mod rectangle;
-
+mod user;
 
 fn main() {
     //user::one();
@@ -10,8 +9,3 @@ fn main() {
 }
 
 // using tuples
-
-
-
-
-
