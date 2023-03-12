@@ -60,9 +60,30 @@ impl Rectangle { // self which is the instance which the method is being called
      */
 }
 
+/*
+    All functions defined within an impl block are called associated functions because they’re associated
+    with the type named after the impl.
+    We can define associated functions that don’t have self as their first parameter (and thus are not methods) !!!
+    because they don’t need an instance of the type to work with.
+
+    We’ve already used one function like this: the String::from function that’s defined on the String type.
+    Associated functions that aren’t methods are often used for constructors that will return a new instance of the struct.
+    These are often called new, but new isn’t a special name and isn’t built into the language.
+    For example, we could choose to provide an associated function named square that would have one dimension parameter
+    and use that as both width and height, thus making it easier to create a square Rectangle rather than having to specify the same value twice:
+ */
+
+// multiple impl blocks are allowed!
 impl Rectangle {
-    fn square(size: u32) -> Rectangle { // associated function, you do not pass &self
+    fn square(size: u32) -> Rectangle { // associated function, this is not a method, they are usually used as a "constructor"
         Rectangle {
+            width: size,
+            height: size
+        }
+    }
+
+    fn square_self(size: u32) -> Self { // using the Self alias as a type, this is not a method
+        Self {
             width: size,
             height: size
         }
