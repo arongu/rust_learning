@@ -1,15 +1,36 @@
+fn lecture() {
+    let value = value_in_cents(Coin::Quarter(UsState::Alaska));
+    println!("{}",value);
+}
+
+
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+    Arizona,
+    Arkansas,
+    California,
+}
+
 enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter
+    Quarter(UsState)
 }
 
-pub(crate) fn value_in_cents(coin: Coin) -> u8 {
+fn value_in_cents(coin: Coin) -> u8 { // match expression is exhaustive, you have to match all the values
     match coin {
-        Coin::Penny => 1,
+        Coin::Penny => {
+            println!("Lucky penny!");
+            1
+        }
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter => 25,
+        Coin::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        },
     }
 }
