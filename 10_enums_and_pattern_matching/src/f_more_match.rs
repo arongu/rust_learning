@@ -6,7 +6,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 
     match x {
         Some(i) => Some(i + 1),
-        _ => None // any other execute this code
+        _ => None, // any other execute this code
     }
 }
 
@@ -18,10 +18,11 @@ pub fn example1() {
     let some_value = Some(3);
     match some_value {
         Some(3) => println!("Three"),
-        _ => ()
+        _ => (),
     }
 
-    if let Some(3) = some_value { // not exhaustive
+    if let Some(3) = some_value {
+        // not exhaustive
         println!("Three");
     }
 }

@@ -1,6 +1,6 @@
 pub fn example1() {
     let value = value_in_cents(Coin::Quarter(UsState::Alaska));
-    println!("{}",value);
+    println!("{}", value);
 }
 
 #[derive(Debug)]
@@ -16,10 +16,11 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState)
+    Quarter(UsState),
 }
 
-fn value_in_cents(coin: Coin) -> u8 { // match expression is exhaustive, you have to match all the values
+fn value_in_cents(coin: Coin) -> u8 {
+    // match expression is exhaustive, you have to match all the values
     match coin {
         Coin::Penny => {
             println!("Lucky penny!");
@@ -30,6 +31,6 @@ fn value_in_cents(coin: Coin) -> u8 { // match expression is exhaustive, you hav
         Coin::Quarter(state) => {
             println!("State quarter from {:?}!", state);
             25
-        },
+        }
     }
 }
