@@ -1,8 +1,7 @@
-fn lecture() {
+pub fn example1() {
     let value = value_in_cents(Coin::Quarter(UsState::Alaska));
     println!("{}",value);
 }
-
 
 #[derive(Debug)]
 enum UsState {

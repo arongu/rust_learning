@@ -1,27 +1,14 @@
+mod a_enum_with_values;
+mod b_enum_complex_with_associated_function;
+mod c_optional;
+mod d_enum_with_match;
+mod f_more_match;
+
 fn main() {
-    let five = Some(5);
-    let six = Some(6);
-    let none: Option<i32> = None;
-
-    let some_value = Some(3);
-    match some_value {
-        Some(3) => println!("Three"),
-        _ => ()
-    }
-
-    if let Some(3) = some_value { // not exhaustive
-        println!("Three");
-    }
-}
-
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    // match x {
-    //     None => None,
-    //     Some(i) => Some(i + 1),
-    // }
-
-    match x {
-        Some(i) => Some(i + 1),
-        _ => None // any other execute this code
-    }
+    a_enum_with_values::example1();
+    b_enum_complex_with_associated_function::example1();
+    c_optional::example1();
+    c_optional::example2();
+    d_enum_with_match::example1();
+    f_more_match::example1();
 }

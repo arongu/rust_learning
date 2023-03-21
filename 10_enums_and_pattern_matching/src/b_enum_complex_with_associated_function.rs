@@ -4,9 +4,9 @@ enum IpAddrKind {
 }
 
 enum Message {
-    Quit, // no data
-    Move { x: i32, y: i32 }, // anonymous struct
-    Write(String), // string
+    Quit,                       // no data
+    Move { x: i32, y: i32 },    // anonymous struct
+    Write(String),              // string
     ChangeColor(i32, i32, i32), // 3 integers
 }
 
@@ -18,14 +18,11 @@ impl Message {
 
 struct IpAddr {
     kind: IpAddrKind,
-    address: String
+    address: String,
 }
 
+fn route(ip_kind: IpAddrKind) {}
 
-fn route(ip_kind: IpAddrKind) {
-
-}
-
-fn second() {
-    let localhost: IpAddrKind = IpAddrKind::V4(127,0,0,1);
+pub fn example1() {
+    let localhost: IpAddrKind = IpAddrKind::V4(127, 0, 0, 1);
 }
