@@ -27,3 +27,35 @@ pub fn one() {
     get_from_vec(&v, 1);
     get_from_vec(&v, 10);
 }
+
+pub fn two() {
+    let mut v: Vec<i32> = vec![1, 2, 3, 4, 5];
+
+    for i in &mut v {
+        *i += 50;
+    }
+
+    for i in &v {
+        println!("{}", i)
+    }
+}
+
+// enum representing spreadsheet cell with different types
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
+pub fn third() {
+    let row: Vec<SpreadsheetCell> = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+
+    match &row[1] {
+        SpreadsheetCell::Int(i) => println!("{}", i),
+        _ => println!("Not an integer!"),
+    }
+}
