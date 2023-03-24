@@ -1,3 +1,6 @@
+use std::fmt;
+use std::fmt::{Formatter, Write};
+
 enum IpAddrKind {
     V4(u8, u8, u8, u8), // different types allowed for storing
     V6(String),
@@ -19,6 +22,30 @@ impl IpAddrKind {
                 } else {
                     println!("IPv6 not localhost address = {}", address);
                 }
+            }
+        }
+    }
+}
+
+impl fmt::Display for IpAddrKind {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        match self {
+            IpAddrKind::V4(a, b, c, d) => {
+                let arr: [u8; 4] = [*a, *b, *c, *d];
+                let mut str: String = String::new();
+
+                for (i, n) in arr.iter().enumerate() {
+                    if i < 3 {
+                        write!(str, "{}.", n).expect("");
+                    } else {
+                        write!(str, "{}", n).expect("");
+                    }
+                }
+
+                write!(f, "{}", str)
+            }
+            IpAddrKind::V6(address) => {
+                write!(f, "{}", address)
             }
         }
     }
@@ -59,4 +86,9 @@ pub fn example1() {
     a4.is_localhost();
     a5.is_localhost();
     a6.is_localhost();
+
+    let arr: [IpAddrKind; 6] = [a1, a2, a3, a4, a5, a6];
+    for index in 0..arr.len() {
+        println!("i: {}, ip: {}", index, arr[index]);
+    }
 }
