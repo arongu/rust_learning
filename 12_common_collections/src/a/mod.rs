@@ -1,11 +1,11 @@
 fn get_from_vec(vec: &Vec<i32>, index: usize) {
     match vec.get(index) {
         Some(third) => println!("The third element is {}", third),
-        None => println!("There is no {} element.", index)
+        None => println!("There is no {} element.", index),
     }
 }
 
-pub fn one(){
+pub fn one() {
     let a: [i32; 3] = [1, 2, 3]; // array
     let mut v: Vec<i32> = Vec::new(); // vector created on the heap, it can grow its size
     v.push(1);
@@ -18,9 +18,10 @@ pub fn one(){
     println!("The third element is {}", third);
 
     // we are using match to be sure what we are accessing is inbound
-    match v.get(2) { // accessing element in the vector
+    match v.get(2) {
+        // accessing element in the vector
         Some(third) => println!("The third element is {}", third),
-        None => println!("There is no third element.")
+        None => println!("There is no third element."),
     }
 
     get_from_vec(&v, 1);
