@@ -12,7 +12,7 @@
 fn area_tuple(dimensions: (u32, u32)) -> u32 {
     dimensions.0 * dimensions.1
 }
-
+madeupip
 pub(crate) fn one() {
     // user::one();
     // struct Color(i32, i32, i32); // tupled structures
@@ -40,7 +40,7 @@ impl Rectangle {
                                  /*
                                     In C and C++, two different operators are used for calling methods: you use .
                                     if you’re calling a method on the object directly and -> if you’re calling the method on a pointer to the object
-                                    and need to dereference the pointer first. In other words, if object is a pointer, object->something() is similar to (*object).something().
+                                    and need to dereference the pointer first. In other words, if object is a pointer, object->a() is similar to (*object).a().
                                     Rust doesn’t have an equivalent to the -> operator; instead, Rust has a feature called automatic referencing and dereferencing.
                                     Calling methods is one of the few places in Rust that has this behavior.
                                  */
