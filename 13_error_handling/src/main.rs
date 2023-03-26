@@ -1,5 +1,6 @@
 mod a_panic;
 mod b_result_enum;
+mod c_error_handling_simplification;
 
 fn main() {
     //a_panic::panic();

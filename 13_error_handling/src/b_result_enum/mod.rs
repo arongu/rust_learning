@@ -21,6 +21,14 @@ pub fn open_file_or_panic() {
     }
 }
 
+pub fn open_file_or_panic_simplified() {
+    //let f = File::open(FILE_PATH).unwrap(); // open_file_or_panic
+    let s = String::from("Could not open file ");
+    let msg = [s, FILE_PATH.to_string()].join("");
+
+    let f = File::open(FILE_PATH).expect(&msg); // open_file_or_panic
+}
+
 pub fn open_file() {
     let f = File::open(FILE_PATH);
     let f= match f {
@@ -34,3 +42,6 @@ pub fn open_file() {
         }
     };
 }
+
+// closeurs coming (anonymous functions)
+// TO BE CONTINUED 8:33 error propogation
